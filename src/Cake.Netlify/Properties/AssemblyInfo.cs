@@ -6,9 +6,9 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Cake.Netlify")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Cake Addin for working with Netlify-CLI from a Cake script.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Jamie Phillips")]
 [assembly: AssemblyProduct("Cake.Netlify")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
