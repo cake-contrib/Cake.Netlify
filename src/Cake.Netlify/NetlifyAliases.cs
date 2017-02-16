@@ -6,7 +6,7 @@ using Cake.Netlify.Deploy;
 
 namespace Cake.Netlify {
     /// <summary>
-    /// <para>Contains functionality related to manage netlify sites using <see cref="https://www.netlify.com/docs/cli/"/></para>
+    /// <para>Contains functionality related to manage netlify sites using https://www.netlify.com/docs/cli/"</para>
     /// <para>
     /// In order to use the commands for this alias, the netlify-cli will need to be installed on the machine where the Cake script is being executed.
     /// This is typically achieved by installing the npm module.

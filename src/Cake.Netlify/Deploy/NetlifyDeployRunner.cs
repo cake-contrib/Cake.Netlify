@@ -10,6 +10,13 @@ namespace Cake.Netlify.Deploy {
     public sealed class NetlifyDeployRunner : NetlifyTool<NetlfiyDeploySettings> {
         private readonly ICakeEnvironment _environment;
 
+        /// <summary>
+        /// The constructor.
+        /// </summary>
+        /// <param name="fileSystem">The filesystem.</param>
+        /// <param name="environment">The Cake environment.</param>
+        /// <param name="processRunner">The process runner.</param>
+        /// <param name="tools">The tool locator.</param>
         public NetlifyDeployRunner(IFileSystem fileSystem, ICakeEnvironment environment, IProcessRunner processRunner,
             IToolLocator tools) : base(fileSystem, environment, processRunner, tools) {
             _environment = environment;
