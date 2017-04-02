@@ -10,13 +10,12 @@ BuildParameters.SetParameters(context: Context,
                             repositoryName: "Cake.Netlify",
                             appVeyorAccountName: "phillipsj");
 
-BuildParameters.PrintParamters(Context);
+BuildParameters.PrintParameters(Context);
 
-//ToolSettings.SetToolSettings(context: Context,
-//                            dupFinderExcludePattern: new string[] { 
-//                                BuildParameters.RootDirectoryPath + "/src/Cake.Netlify.Tests/*.cs" },
-//                            testCoverageFilter: "+[*]* -[xunit.*]* -[Cake.Core]* -[Cake.Testing]* -[*.Tests]* ",
-//                           testCoverageExcludeByAttribute: "*.ExcludeFromCodeCoverage*",
-//                           testCoverageExcludeByFile: "*/*Designer.cs;*/*.g.cs;*/*.g.i.cs");
-
+ToolSettings.SetToolSettings(context: Context,
+                            dupFinderExcludePattern: new string[] { 
+                                BuildParameters.RootDirectoryPath + "/src/Cake.Netlify.Tests/*.cs" },
+                            testCoverageFilter: "+[*]* -[xunit.*]* -[Cake.Core]* -[Cake.Testing]* -[*.Tests]* ",
+                            testCoverageExcludeByAttribute: "*.ExcludeFromCodeCoverage*",
+                            testCoverageExcludeByFile: "*/*Designer.cs;*/*.g.cs;*/*.g.i.cs");
 Build.Run();

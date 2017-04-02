@@ -254,4 +254,5 @@ paket-files/
 # Cake - C# Make
 tools/*
 !tools/packages.config
+BuildArtifacts
 
