@@ -29,20 +29,7 @@ namespace Cake.Netlify {
         [CakeAliasCategory("Deploy")]
         [CakeNamespaceImport("Cake.Netlify.Deploy")]
         public static void NetlifyDeploy(this ICakeContext context, string siteId, string token) {
-            if (context == null) {
-                throw new ArgumentNullException(nameof(context));
-            }
-            if (string.IsNullOrWhiteSpace(siteId)) {
-                throw new ArgumentNullException(nameof(siteId));
-            }
-            if (string.IsNullOrWhiteSpace(token)) {
-                throw new ArgumentNullException(nameof(token));
-            }
-
-            var netlifyDeploy = new NetlifyDeployRunner(context.FileSystem, context.Environment, context.ProcessRunner,
-                context.Tools);
-            netlifyDeploy.Deploy(context.Environment.WorkingDirectory,
-                new NetlfiyDeploySettings {SiteId = siteId, Token = token});
+            NetlifyDeploy(context, context.Environment.WorkingDirectory, siteId, token);
         }
 
         /// <summary>

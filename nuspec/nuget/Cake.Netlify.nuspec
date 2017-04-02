@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <metadata xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <id>Cake.Netlify</id>
+    <version>0.0.0</version>
+    <authors>Jamie Phillips</authors>
+    <owners>Jamie Phillips</owners>
+    <description>Cake Addin for working with Netlify-CLI from a Cake script.</description>
+    <summary>A set of aliases for Cake to help with running Netlify CLI commands as part of a build.</summary>
+    <licenseUrl>https://github.com/RadioSystems/Cake.Netlify/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/RadioSystems/Cake.Netlify</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <copyright>Copyright (c) Jamie Phillips 2017 - Present</copyright>
+    <tags>Cake, Script, Build, Netlify, Addin</tags>
+  </metadata>
+  <files>
+    <file src="Cake.Netlify.dll" target="lib\net45" />
+    <file src="Cake.Netlify.pdb" target="lib\net45" />
+    <file src="Cake.Netlify.xml" target="lib\net45" />
+  </files>
+</package>
