@@ -46,7 +46,7 @@ namespace Cake.Netlify.Tests {
             result.ShouldBeType<CakeException>().Message.ShouldEqual("Netlify: Could not locate executable.");
         }
 
-        [Fact]
+        [Theory]
         [InlineData("/bin/tools/Netlify/netlify.cmd", "/bin/tools/Netlify/netlify.cmd")]
         [InlineData("./tools/Netlify/netlify.cmd", "/Working/tools/Netlify/netlify.cmd")]
         public void Should_Use_Netlify_Executable_From_Tool_Path_If_Provided(string toolPath, string expected) {
