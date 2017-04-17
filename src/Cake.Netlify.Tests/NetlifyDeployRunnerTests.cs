@@ -3,11 +3,11 @@ using Cake.Core;
 using Cake.Netlify.Tests.Fixture;
 using Cake.Testing;
 using Should;
-using Should.Core.Assertions;
-using UglyToad.Fixie.DataDriven;
+using Xunit;
 
 namespace Cake.Netlify.Tests {
     public sealed class NetlifyDeployRunnerTests {
+        [Fact]
         public void Should_Throw_If_Settings_Are_Null() {
             // Given
             var fixture = new NetlifyDeployFixture();
@@ -20,6 +20,7 @@ namespace Cake.Netlify.Tests {
             result.ShouldBeType<ArgumentNullException>().ParamName.ShouldEqual("settings");
         }
 
+        [Fact]
         public void Should_Throw_If_Directory_To_Deploy_Is_Null() {
             // Given
             var fixture = new NetlifyDeployFixture();
@@ -32,6 +33,7 @@ namespace Cake.Netlify.Tests {
             result.ShouldBeType<ArgumentNullException>().ParamName.ShouldEqual("directoryToDeploy");
         }
 
+        [Fact]
         public void Should_Throw_If_Netlify_Executable_Was_Not_Found() {
             // Given
             var fixture = new NetlifyDeployFixture();
@@ -44,6 +46,7 @@ namespace Cake.Netlify.Tests {
             result.ShouldBeType<CakeException>().Message.ShouldEqual("Netlify: Could not locate executable.");
         }
 
+        [Fact]
         [InlineData("/bin/tools/Netlify/netlify.cmd", "/bin/tools/Netlify/netlify.cmd")]
         [InlineData("./tools/Netlify/netlify.cmd", "/Working/tools/Netlify/netlify.cmd")]
         public void Should_Use_Netlify_Executable_From_Tool_Path_If_Provided(string toolPath, string expected) {
@@ -59,6 +62,7 @@ namespace Cake.Netlify.Tests {
             result.Path.FullPath.ShouldEqual(expected);
         }
 
+        [Fact]
         public void Should_Throw_If_Process_Was_Not_Started() {
             // Given
             var fixture = new NetlifyDeployFixture();
@@ -71,6 +75,7 @@ namespace Cake.Netlify.Tests {
             result.ShouldBeType<CakeException>().Message.ShouldEqual("Netlify: Process was not started.");
         }
 
+        [Fact]
         public void Should_Throw_If_Process_Has_A_Non_Zero_Exit_Code() {
             // Given
             var fixture = new NetlifyDeployFixture();
@@ -95,6 +100,7 @@ namespace Cake.Netlify.Tests {
             result.Path.FullPath.ShouldEqual("/Working/tools/netlify.cmd");
         }
 
+        [Fact]
         public void Should_Add_Directory_To_Deploy_To_Arguments() {
             // Given 
             var fixture = new NetlifyDeployFixture();
@@ -106,6 +112,7 @@ namespace Cake.Netlify.Tests {
             result.Args.ShouldEqual("deploy -p \"/Working/dist\"");
         }
 
+        [Fact]
         public void Should_Add_Site_Id_To_Arguments() {
             // Given 
             var fixture = new NetlifyDeployFixture();
@@ -118,6 +125,7 @@ namespace Cake.Netlify.Tests {
             result.Args.ShouldEqual("deploy -p \"/Working/dist\" -s 123");
         }
 
+        [Fact]
         public void Should_Add_Token_To_Arguments() {
             // Given 
             var fixture = new NetlifyDeployFixture();
@@ -130,6 +138,7 @@ namespace Cake.Netlify.Tests {
             result.Args.ShouldEqual("deploy -p \"/Working/dist\" -s 123 -t 456");
         }
 
+        [Fact]
         public void Should_Add_Draft_To_Arguments() {
             // Given 
             var fixture = new NetlifyDeployFixture();
@@ -144,6 +153,7 @@ namespace Cake.Netlify.Tests {
             result.Args.ShouldEqual("deploy -p \"/Working/dist\" -s 123 -t 456 -d");
         }
 
+        [Fact]
         public void Should_Add_Environment_To_Arguments() {
             // Given 
             var fixture = new NetlifyDeployFixture();
