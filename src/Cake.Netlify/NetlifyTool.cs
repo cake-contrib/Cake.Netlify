@@ -35,5 +35,19 @@ namespace Cake.Netlify {
         protected sealed override IEnumerable<string> GetToolExecutableNames() {
             return new[] {"netlify.cmd", "netlify"};
         }
+
+        /// <summary>
+        /// Gets alternative file paths which the tool may exist.
+        /// </summary>
+        /// <param name="settings">The settings.</param>
+        /// <returns>The default tool path.</returns>
+        protected override IEnumerable<FilePath> GetAlternativeToolPaths(TSettings settings)
+        {
+            return new []
+            {
+                new FilePath("./node_modules/.bin/netlify.cmd"),
+                new FilePath("./node_modules/.bin/netlify")
+            };
+        }
     }
 }
