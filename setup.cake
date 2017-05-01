@@ -6,9 +6,9 @@ BuildParameters.SetParameters(context: Context,
                             buildSystem: BuildSystem,
                             sourceDirectoryPath: "./src",
                             title: "Cake.Netlify",
-                            repositoryOwner: "phillipsj",
+                            repositoryOwner: "cake-contrib",
                             repositoryName: "Cake.Netlify",
-                            appVeyorAccountName: "phillipsj");
+                            appVeyorAccountName: "cakecontrib");
 
 BuildParameters.PrintParameters(Context);
 
