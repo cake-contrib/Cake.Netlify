@@ -1,8 +1,8 @@
 ﻿using System;
 using Cake.Core;
 using Cake.Netlify.Tests.Fixture;
+using FluentAssertions;
 using NSubstitute;
-using Should;
 using Xunit;
 
 namespace Cake.Netlify.Tests {
@@ -17,7 +17,7 @@ namespace Cake.Netlify.Tests {
                 null, fixture.DirectoryToDeploy, fixture.Settings));
 
             // Then
-            result.ShouldBeType<ArgumentNullException>().ParamName.ShouldEqual("context");
+            result.Should().BeOfType<ArgumentNullException>().Subject.ParamName.Should().Equals("context");
         }
 
         [Fact]
@@ -30,7 +30,7 @@ namespace Cake.Netlify.Tests {
             var result = Record.Exception(() => NetlifyAliases.NetlifyDeploy(
                 context, null, fixture.Settings));
             // Then
-            result.ShouldBeType<ArgumentNullException>().ParamName.ShouldEqual("directoryToDeploy");
+            result.Should().BeOfType<ArgumentNullException>().Subject.ParamName.Should().Equals("directoryToDeploy");
         }
 
         [Fact]
@@ -42,7 +42,7 @@ namespace Cake.Netlify.Tests {
             var result = Record.Exception(() => NetlifyAliases.NetlifyDeploy(
                 context, null, "my-token"));
             // Then
-            result.ShouldBeType<ArgumentNullException>().ParamName.ShouldEqual("siteId");
+            result.Should().BeOfType<ArgumentNullException>().Subject.ParamName.Should().Equals("siteId");
         }
 
         [Fact]
@@ -54,7 +54,7 @@ namespace Cake.Netlify.Tests {
             var result = Record.Exception(() => NetlifyAliases.NetlifyDeploy(
                 context, "my-site-id", null));
             // Then
-            result.ShouldBeType<ArgumentNullException>().ParamName.ShouldEqual("token");
+            result.Should().BeOfType<ArgumentNullException>().Subject.ParamName.Should().Equals("token");
         }
     }
 }
