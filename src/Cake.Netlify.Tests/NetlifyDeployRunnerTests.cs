@@ -2,7 +2,7 @@
 using Cake.Core;
 using Cake.Netlify.Tests.Fixture;
 using Cake.Testing;
-using Should;
+using FluentAssertions;
 using Xunit;
 
 namespace Cake.Netlify.Tests {
@@ -17,7 +17,7 @@ namespace Cake.Netlify.Tests {
             var result = Record.Exception(() => fixture.Run());
 
             // Then
-            result.ShouldBeType<ArgumentNullException>().ParamName.ShouldEqual("settings");
+            result.Should().BeOfType<ArgumentNullException>().Subject.ParamName.Should().Equals("settings");
         }
 
         [Fact]
@@ -30,7 +30,7 @@ namespace Cake.Netlify.Tests {
             var result = Record.Exception(() => fixture.Run());
 
             // Then
-            result.ShouldBeType<ArgumentNullException>().ParamName.ShouldEqual("directoryToDeploy");
+            result.Should().BeOfType<ArgumentNullException>().Subject.ParamName.Should().Equals("directoryToDeploy");
         }
 
         [Fact]
@@ -43,7 +43,7 @@ namespace Cake.Netlify.Tests {
             var result = Record.Exception(() => fixture.Run());
 
             // Then
-            result.ShouldBeType<CakeException>().Message.ShouldEqual("Netlify: Could not locate executable.");
+            result.Should().BeOfType<CakeException>().Subject.Message.Should().Equals("Netlify: Could not locate executable.");
         }
 
         [Theory]
@@ -59,7 +59,7 @@ namespace Cake.Netlify.Tests {
             var result = fixture.Run();
 
             // Then
-            result.Path.FullPath.ShouldEqual(expected);
+            result.Path.FullPath.Should().Equals(expected);
         }
 
         [Fact]
@@ -72,7 +72,7 @@ namespace Cake.Netlify.Tests {
             var result = Record.Exception(() => fixture.Run());
 
             // Then
-            result.ShouldBeType<CakeException>().Message.ShouldEqual("Netlify: Process was not started.");
+            result.Should().BeOfType<CakeException>().Subject.Message.Should().Equals("Netlify: Process was not started.");
         }
 
         [Fact]
@@ -85,11 +85,12 @@ namespace Cake.Netlify.Tests {
             var result = Record.Exception(() => fixture.Run());
 
             // Then
-            result.ShouldBeType<CakeException>()
-                .Message.ShouldEqual("Netlify: Process returned an error (exit code 1).");
+            result.Should().BeOfType<CakeException>().Subject.Message
+                .Should().Equals("Netlify: Process returned an error (exit code 1).");
         }
 
-        public void Should_Find_Tfx_Executable_If_Tool_Path_Not_Provided() {
+        [Fact]
+        public void Should_Find_Netlify_Executable_If_Tool_Path_Not_Provided() {
             // Given
             var fixture = new NetlifyDeployFixture();
 
@@ -97,7 +98,7 @@ namespace Cake.Netlify.Tests {
             var result = fixture.Run();
 
             // Then
-            result.Path.FullPath.ShouldEqual("/Working/tools/netlify.cmd");
+            result.Path.FullPath.Should().Equals("/Working/tools/netlify.cmd");
         }
 
         [Fact]
@@ -109,7 +110,7 @@ namespace Cake.Netlify.Tests {
             var result = fixture.Run();
 
             // Then
-            result.Args.ShouldEqual("deploy -p \"/Working/dist\"");
+            result.Args.Should().Equals("deploy -p \"/Working/dist\"");
         }
 
         [Fact]
@@ -122,7 +123,7 @@ namespace Cake.Netlify.Tests {
             var result = fixture.Run();
 
             // Then
-            result.Args.ShouldEqual("deploy -p \"/Working/dist\" -s 123");
+            result.Args.Should().Equals("deploy -p \"/Working/dist\" -s 123");
         }
 
         [Fact]
@@ -135,7 +136,7 @@ namespace Cake.Netlify.Tests {
             var result = fixture.Run();
 
             // Then
-            result.Args.ShouldEqual("deploy -p \"/Working/dist\" -s 123 -t 456");
+            result.Args.Should().Equals("deploy -p \"/Working/dist\" -s 123 -t 456");
         }
 
         [Fact]
@@ -150,7 +151,7 @@ namespace Cake.Netlify.Tests {
             var result = fixture.Run();
 
             // Then
-            result.Args.ShouldEqual("deploy -p \"/Working/dist\" -s 123 -t 456 -d");
+            result.Args.Should().Equals("deploy -p \"/Working/dist\" -s 123 -t 456 -d");
         }
 
         [Fact]
@@ -166,7 +167,7 @@ namespace Cake.Netlify.Tests {
             var result = fixture.Run();
 
             // Then
-            result.Args.ShouldEqual("deploy -p \"/Working/dist\" -s 123 -t 456 -d -e production");
+            result.Args.Should().Equals("deploy -p \"/Working/dist\" -s 123 -t 456 -d -e production");
         }
     }
 }
