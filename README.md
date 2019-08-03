@@ -28,6 +28,10 @@ Come join in the conversation about Cake.CsvHelper in our Gitter Chat Room
 
 [![Join the chat at https://gitter.im/cake-contrib/Lobby](https://badges.gitter.im/cake-contrib/Lobby.svg)](https://gitter.im/cake-contrib/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
+## Support
+
+If you would like to support this project, there are several opportunities. Pull Requests, bug reports, documentation, promotion, and encouragement are all great ways. If you would like to contribute monetarily, you can [Buy Me a Coffee](https://www.buymeacoffee.com/aQPnJ73O8).
+
 ## Build
 
 To build this package we are using Cake.
