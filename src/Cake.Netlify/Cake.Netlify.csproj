@@ -2,21 +2,19 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <AssemblyName>Cake.Netlify</AssemblyName>
-    <PackageId>Cake.Netlify</PackageId>
-    <RuntimeIdentifiers>win7-x64;win7-x86;osx.10.11-x64;ubuntu.14.04-x64;ubuntu.16.04-x64;centos.7-x64;rhel.7.2-x64;debian.8-x64;fedora.23-x64;opensuse.13.2-x64</RuntimeIdentifiers>
-    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
-    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
-    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
+  <PropertyGroup>
+    <Authors>Jamie Phillips</Authors>
+    <Copyright>Copyright © 2017-$([System.DateTime]::Now.Year) - Jamie Phillips</Copyright>
+    <Description>Cake Addin for working with Netlify-CLI from a Cake script.</Description>
+    <PackageIconUrl>https://cdn.jsdelivr.net/gh/cake-contrib/graphics/png/cake-contrib-medium.png</PackageIconUrl>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/cake-contrib/Cake.Netlify</PackageProjectUrl>
+    <PackageTags>Cake;Script;Build;Netlify;</PackageTags>
+    <RepositoryUrl>$(PackageProjectUrl).git</RepositoryUrl>  
+    <RepositoryType>git</RepositoryType>  
   </PropertyGroup>
 
   <ItemGroup>
